@@ -1,5 +1,6 @@
 package com.billingsystem.user;
 
+//Class that represents affiliates of the store
 public class Affiliate extends User {
 
     public Affiliate() {

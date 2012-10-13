@@ -1,11 +1,16 @@
 package com.billingsystem.item;
 
+//Simple class for object item with 4 fields id, name, cost and type.
+// Constructors and getters/ setters provided.
 public class Item {
 
     private String id;
     private String name;
     private double cost;
     private ItemType type;
+
+    public Item() {
+    }
 
     public Item(String id, String name, double cost, ItemType type) {
         this.id = id;
@@ -47,5 +52,3 @@ public class Item {
     }
 
 }
-
-

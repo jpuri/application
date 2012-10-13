@@ -7,9 +7,9 @@ import com.billingsystem.user.User;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Class for bill it contains a user reference and a list of items, it provides method to calculate payable amount for bill
- */
+
+// Class for bill it contains a user reference and a list of items,
+// it provides method to calculate payable amount for bill
 public class Bill {
 
     private User user;
@@ -41,8 +41,9 @@ public class Bill {
 
     /**
      * Method to calculate payable amount for bill.
-     * For non grocery items percentage discount is applied as applicable to the user.
-     * A discount of $5 per $100 is then applied on the amount of bill.
+     * Cost of grocery items is calculated.
+     * Cost for non-grocery items is calculated applying percentage discount as applicable to the user.
+     * A discount of $5 per $100 is then applied on the bill amount.
      */
     public double getPayableAmount(){
         double payableAmount = 0.0;
@@ -72,9 +73,9 @@ public class Bill {
         return nonGroceryItems;
     }
 
-    //Method to calculate added cost of items in a list
+    //Method to find added cost of items in a list
     private double getItemsCost(List<Item> items){
-        double addedCost = 0;
+        double addedCost = 0.0;
         for(Item item : items){
             addedCost += item.getCost();
         }

@@ -1,5 +1,7 @@
 package com.billingsystem.user;
 
+//Abstract class User, it is super class for classes Customer,
+//Employee, Affiliate and contain fields common to these classes.
 public abstract class User {
 
     String id;

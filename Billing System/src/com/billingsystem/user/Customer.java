@@ -3,6 +3,8 @@ package com.billingsystem.user;
 import java.util.Calendar;
 import java.util.Date;
 
+//Class representing customer,
+// it has field startDate in addition to the fields of base class user.
 public class Customer extends User {
 
     private Date startDate;
@@ -28,6 +30,7 @@ public class Customer extends User {
     }
 
     @Override
+    //A discount of 5% will be given to customers older than 2 years
     public double getDiscount(){
 
         Calendar calendar = Calendar.getInstance();
