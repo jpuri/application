@@ -1,0 +1,48 @@
+<project name="BillingSystem" default="test" basedir=".">
+
+    <target name="init">
+        <property name="sourceDir" value="src"/>
+        <property name="outputDir" value="bin"/>
+        <property name="outputDir.src" value="bin/src"/>
+        <property name="outputDir.test" value="bin/test"/>
+        <property name="libDir" value="lib"/>
+        <property name="testDir" value="test"/>
+        <property name="junit.report" value="junit-report"/>
+    </target>
+
+    <target name="clean" depends="init">
+        <delete dir="${outputDir}" />
+        <delete dir="${junit.report}" />
+    </target>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="${outputDir}" />
+        <mkdir dir="${outputDir.src}" />
+        <javac srcdir="${sourceDir}" destdir="${outputDir.src}" />
+    </target>
+
+    <target name="compiletests" depends="compile">
+        <mkdir dir="${outputDir.test}"/>
+        <mkdir dir="${junit.report}"/>
+        <javac srcdir="${testDir}" destdir="${outputDir.test}" classpath="${libDir}/junit-4.10.jar;${outputDir.src}"/>
+    </target>
+
+    <target name="test" depends="compiletests">
+        <junit printsummary="yes">
+            <classpath>
+                <pathelement location="${libDir}/junit-4.10.jar"/>
+                <pathelement location="${outputDir.test}"/>
+                <pathelement location="${outputDir.src}"/>
+            </classpath>
+
+            <formatter type="plain"/>
+
+            <batchtest fork="true" todir="${junit.report}">
+                <fileset dir="${outputDir.test}">
+                    <include name="**/*.class"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+</project>
